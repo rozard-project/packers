@@ -1,0 +1,19 @@
+{{- define "asset_head" -}}
+    {{- $.Scratch.Set "style_asset" (dict "src" "css/head/home.scss" "dest" "css/head/home.scss") -}}
+{{- end -}}
+
+
+{{- define "main" -}}
+
+    <div class="overlay">
+        <article class="content wiki">
+            <h1>{{ .Title }} Wiki</h1>
+            <div class="pages"> {{ .Content }} </div>
+        </article>
+        <asside class="sidebar">
+            {{ partial "view/sides/tocspage.html" . }}
+            {{ partial "view/sides/packdata.html" . }}
+        </asside>
+    </div>
+
+{{- end -}}

@@ -1,0 +1,38 @@
+
+<!-- toc initload -->
+{{- partial "inline/view/sides/listpage_mansbox.html" . -}}
+
+
+
+<!-- toc mainbox -->
+{{- define "_partials/inline/view/sides/listpage_mansbox.html" -}}
+
+	<section class="sidebar-section pagelist">
+		<h2 class="section-title">
+			<span>{{- partial "icon" "book" -}}</span> Manual
+		</h2>
+		<ul class="section-block">
+			{{- partial "inline/view/sides/listpage_mansitem.html" . -}}
+		</ul>
+	</section>
+
+{{- end -}}
+
+
+<!-- toc level 1 -->
+{{- define "_partials/inline/view/sides/listpage_mansitem.html" -}}
+
+	{{- range where .Site.Pages "Section" "mans" -}}
+  		<li class="item open">
+			<div class="parent">
+				<span class="icons">
+					{{- partial "icon" "file" -}}
+				</span>
+				<a class="heading" href="{{ .RelPermalink }}">
+					{{- .Title | htmlUnescape -}}
+				</a>
+			</div>
+        </li>
+	{{- end -}}
+
+{{- end -}} 

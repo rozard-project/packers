@@ -1,0 +1,29 @@
+
+/* ========== PACKAGE INFO ========== */
+.package-list {
+    list-style: none;
+}
+
+.package-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: clamp(6px, 0.8vw, 8px) 0;
+    font-size: clamp(12px, 1.1vw, 13px);
+}
+
+.package-name {
+    color: #F8F8FF;
+}
+
+.package-version {
+    color: #ff4500;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.package-version:hover {
+    color: #FF4500;
+    text-decoration: underline;
+}

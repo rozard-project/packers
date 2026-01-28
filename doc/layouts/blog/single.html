@@ -1,0 +1,46 @@
+{{- define "asset_head" -}}
+    {{- $.Scratch.Set "style_asset" (dict "src" "css/head/blog.scss" "dest" "css/head/blog-page.scss") -}}
+{{- end -}}
+
+{{- define "main" -}}
+
+	<div class="overlay">
+		<div class="content blog list">
+			<div class="header">
+				<div class="meta">
+					{{- partial "icon" "edit" -}}
+					<div class="vertical-line"></div>
+					<h1>{{ .Title }}</h1>
+				</div>
+				<div class="desc">{{ .Content }}</div>
+				<div class="divs"></div>
+			</div>
+			<div class="lister">
+				{{ range .Pages }}
+				<article  data-url="{{ .Permalink }}">
+					<a class="article" href="{{ .RelPermalink }}">
+						<figure class="thumbnail">
+							<img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400" alt="Tutorial">
+						</figure>
+						<div class="divider"></div>
+						<div class="resumebox">
+							<h2 class="title">{{ .LinkTitle }}</h2>
+							<div class="metas">
+								<img src="https://i.pravatar.cc/150?img=8" class="avatar" alt="Author">
+								<span class="author">Null</span>
+								<span class="update">Jun 13, 1</span>
+							</div>
+							<p class="describ">{{ .Summary }}</p>
+						</div>
+					</a>
+				</article>
+				{{ end }}
+			</div>
+		</div>
+
+		<div class="sidebar">
+			{{ partial "view/sides/termblog.html" . }}
+		</div>
+	</div>
+
+{{ end }}

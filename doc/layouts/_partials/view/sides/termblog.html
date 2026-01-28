@@ -1,0 +1,42 @@
+
+<!-- toc initload -->
+{{- partial "inline/sides/listterm_blogbox.html" . -}}
+
+
+
+<!-- toc mainbox -->
+{{- define "_partials/inline/sides/listterm_blogbox.html" -}}
+
+	<section class="sidebar-section tocs">
+		<h2 class="section-title">
+			<span>{{- partial "icon" "package" -}}</span> Categories
+		</h2>
+		<ul class="section-block">
+			{{- with .Fragments -}}{{- partial "inline/sides/listterm_blogitem.html" . -}}{{- end -}}
+		</ul>
+	</section>
+
+{{- end -}}
+
+
+<!-- toc level 1 -->
+{{- define "_partials/inline/sides/listterm_blogitem.html" }}
+
+	{{- range .Headings -}}{{- if gt .Level 0 -}}
+		<li class="item open">
+			<div class="parent">
+				<span class="icons">
+					{{ partial "icon" "plus-circle" }}
+				</span>
+				<a class="heading" href="#kurosh-heading-{{ .Level }}-{{ .ID }}">
+					{{- .Title | htmlUnescape -}}
+				</a>
+			</div>
+            <ul class="sublist">
+                {{- partial "inline/sides/blogbox_level2.html" . -}}
+            </ul>
+        </li>
+	{{- end -}}{{- end -}}
+
+{{- end -}} 
+

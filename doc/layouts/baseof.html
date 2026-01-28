@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
+<head>
+
+    {{- block "asset_head" . -}}{{- end -}}
+    {{- partial "view/meta/base.html" . -}}
+
+    <!-- asset rendering -->
+    {{- $current_pageuri := . -}}
+    {{- $style_base_head := .Scratch.Get "style_asset" | default ( dict "src" "css/head/home.scss" "dest" "css/head/home.css" ) -}}
+    {{- $sytle_over_head := (dict "src" "css/head/over.scss" "dest" "css/head/over.css") -}}
+
+    {{- range (slice $style_base_head $sytle_over_head) -}}
+        {{- $style := resources.Get .src | resources.ExecuteAsTemplate .dest $current_pageuri | toCSS | minify -}}
+        <link type="text/css" rel="stylesheet" href="{{ $style.RelPermalink }}" />
+    {{- end -}}
+    
+
+    {{- partial "view/head/aset.html" . -}}
+    {{- partial "view/meta/main.html" . -}}
+</head>
+<body>
+    <header>
+        {{- partial "view/navs/main.html" . -}}
+    </header>
+    <main>
+        <div class="wrap">
+            {{- partial "view/hero/main.html" . -}}
+            {{- partial "view/pane/main.html" . -}}
+            {{- block "main" . }}{{-  end  -}}
+        </div>
+    </main>
+    <footer>
+        {{- partial "view/boto/main.html" . -}}
+    </footer>
+    {{- partial "view/pack/aset.html" . -}}
+</body>
+</html>

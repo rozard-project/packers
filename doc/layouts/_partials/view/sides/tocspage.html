@@ -1,0 +1,80 @@
+
+<!-- toc initload -->
+{{- partial "inline/sides/tocbox.html" . -}}
+
+
+
+<!-- toc mainbox -->
+{{- define "_partials/inline/sides/tocbox.html" }}
+
+	<section class="sidebar-section tocs">
+		<h2 class="section-title">
+			<span>{{ partial "icon" "package" }}</span> Contents
+		</h2>
+		<ul class="section-block">
+			{{- with .Fragments -}}{{- partial "inline/sides/level1.html" . -}}{{- end -}}
+		</ul>
+	</section>
+
+{{ end }}
+
+
+<!-- toc level 1 -->
+{{- define "_partials/inline/sides/level1.html" }}
+
+	{{- range .Headings -}}{{- if gt .Level 0 -}}
+		<li class="item open">
+			<div class="parent">
+				<span class="icons">
+					{{ partial "icon" "plus-circle" }}
+				</span>
+				<a class="heading" href="#kurosh-heading-{{ .Level }}-{{ .ID }}">
+					{{- .Title | htmlUnescape -}}
+				</a>
+			</div>
+            <ul class="sublist">
+                {{- partial "inline/sides/level2.html" . -}}
+            </ul>
+        </li>
+	{{- end -}}{{- end -}}
+
+{{- end -}} 
+
+
+<!-- toc level 2 -->
+{{- define "_partials/inline/sides/level2.html" }}
+
+	{{- range .Headings -}}{{- if gt .Level 0 -}}
+		<li>
+			<a class="toc-level-{{ .Level }}" href="#kurosh-heading-{{ .Level }}-{{ .ID }}">{{- .Title | htmlUnescape -}}</a>
+		</li>
+		{{- partial "inline/sides/level4.html" . -}}
+	{{- end -}}{{- end -}}
+
+{{- end -}}
+
+
+<!-- toc level 3 -->
+{{- define "_partials/inline/sides/level3.html" }}
+
+	{{- range .Headings -}}{{- if gt .Level 0 -}}
+		<li>
+			<a class="toc-level-{{ .Level }}" href="#kurosh-heading-{{ .Level }}-{{ .ID }}">{{- .Title | htmlUnescape -}}</a>
+		</li>
+		{{- partial "inline/sides/level4.html" . -}}
+	{{- end -}}{{- end -}}
+
+{{ end }}
+
+
+<!-- toc level 4 -->
+ {{- define "_partials/inline/sides/level4.html" }}
+
+	{{- range .Headings -}}{{- if gt .Level 0 -}}
+		<li>
+			<a class="toc-level-{{ .Level }}" href="#kurosh-heading-{{ .Level }}-{{ .ID }}">{{- .Title | htmlUnescape -}}</a>
+		</li>
+		{{- partial "inline/sides/level4.html" . -}}
+	{{- end -}}{{- end -}}
+
+{{- end -}}

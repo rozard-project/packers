@@ -1,0 +1,52 @@
+{{ define "asset_head" }}
+    {{ $.Scratch.Set "style_opts" (dict "src" "css/head/home.scss" "dest" "css/head/home.scss") }}
+{{ end }}
+
+{{ define "main" }}
+
+	<div class="wraper">
+		
+		<div class="main-content content-page tutorial-page">
+			
+			<div class="article-list">
+				<div class="article-wrapper">
+					<div class="article-header">
+						
+						<i data-feather="edit"></i>
+						<div class="header-vertical-line"></div>
+						<span><h1>{{ .Title }}</h1></span>
+						{{ .Content }}
+					</div>
+					<div class="header-divider"></div>
+					{{ range .Pages }}
+					<article class="article-item" data-url="https://example.com/article1">
+						<div class="article-thumbnail">
+							<img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400"
+								alt="Tutorial">
+						</div>
+						<div class="content-divider"></div>
+						<div class="article-content">
+							<a href="{{ .RelPermalink }}">
+								<h2 class="article-title">{{ .LinkTitle }}</h2>
+							</a>
+							<div class="article-meta">
+								<img src="https://i.pravatar.cc/150?img=8" class="author-avatar"
+									alt="Author">
+								<span class="author-name">Null</span>
+								<span class="article-date">Jun 13, 1</span>
+							</div>
+							<p class="article-description">{{ .Summary }}</p>
+						</div>
+					</article>
+					{{ end }}
+				</div>
+			</div>
+			
+		</div>
+
+		<asside class="sidebar">
+			{{- partial "view/sides/tocspage.html" . -}}
+		</asside>
+	</div>
+
+{{ end }}
