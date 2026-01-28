@@ -105,6 +105,36 @@ body {
     stroke: #ff5f00;
 }
 
+/* ========== INFO ========== */
+.info {
+    display: flex;
+    gap: clamp(30px, 5vw, 60px);
+    align-items: center;
+}
+
+.info .label {
+    font-size: clamp(11px, 1vw, 12px);
+    opacity: 0.65;
+    margin-bottom: 2px;
+}
+
+.info p {
+    margin: 0;
+    color: #F8F8FF;
+    font-size: clamp(12px, 1.1vw, 14px);
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar {
+    width: clamp(32px, 3vw, 36px);
+    height: clamp(32px, 3vw, 36px);
+    border-radius: 10px;
+}
 
 
 /* ========== CONTENTS ========== */
