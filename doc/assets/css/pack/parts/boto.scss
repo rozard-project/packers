@@ -1,0 +1,20 @@
+footer{
+
+    margin: 2.5rem 0;
+
+    .wrap{
+        gap: 1rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .logo{
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .text-small{
+        font-size: .8rem;
+        color: var(--greys1-color);
+    }
+}
