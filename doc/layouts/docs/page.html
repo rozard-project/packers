@@ -8,11 +8,10 @@
 	<div class="overlay">
 		<article class="content docspage">
 			<div class="header">
-				<h1 class="heading">{{ .Store.Get "github_repo_name" }} Documentation</h1>
+				<h1 class="heading">{{ .Title }} </h1>
 			</div>
 			<div class="pages">
-				<h1>Name</h1><p class="">{{ .Title }}</p>
-				{{ .Content }}
+				{{ .Content }}				
 			</div>
 		</article>
 		<asside class="sidebar">
